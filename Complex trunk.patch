@@ -1,13 +1,11 @@
---- svn/MSL trunk/Complex.mo	2013-11-09 15:11:23.605016263 +0100
-+++ build/Complex trunk.mo	2013-11-09 15:43:43.395390587 +0100
-@@ -236,8 +236,8 @@
-   end 'String';
+--- git/Modelica/Complex.mo	2017-06-02 02:02:41.374161958 +0200
++++ build/Complex trunk.mo	2017-06-02 02:12:25.247125425 +0200
+@@ -236,7 +236,7 @@
+ 
  
  annotation (Protection(access=Access.hide),
--version="3.2.1",
--versionBuild=2,
-+version="trunk",
-+versionBuild=0,
- versionDate="2013-08-14",
- dateModified = "2013-08-14 08:44:41Z",
- revisionId="$Id:: Complex.mo 6931 2013-08-14 11:38:51Z #$",
+-version="3.2.2",
++version= "trunk",
+ versionBuild=0,
+ versionDate="2016-01-15",
+ dateModified = "2016-01-15 08:44:41Z",

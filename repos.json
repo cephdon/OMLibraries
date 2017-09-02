@@ -1,7 +1,13 @@
 {
   "bad-uses": [
     "DataFiles 1.0",
-    "ModelManagement 1.1.1"
+    "DEVLib 1",
+    "DEVSLib 2.2",
+    "ModelManagement 1.1.1",
+    "ModeleObsoletes 2015.12",
+    "DESLib 1",
+    "DESLib73 1",
+    "Interactive 2"
   ],
   "github-ignore": [
     "https://github.com/modelica/Modelica",
@@ -9,22 +15,16 @@
     "https://github.com/modelica/Modelica_LinearSystems2",
     "https://github.com/modelica/Modelica_StateGraph2",
     "https://github.com/modelica/Modelica_Synchronous",
-    "https://github.com/modelica-3rdparty/open-bldc-modelica.git",
-    "https://github.com/modelica-3rdparty/AixLib",
+    "https://github.com/modelica-3rdparty/fmi-standard.org",
     "https://github.com/modelica-3rdparty/ATplus",
-    "https://github.com/modelica-3rdparty/BioChem",
-    "https://github.com/modelica-3rdparty/Buildings",
-    "https://github.com/modelica-3rdparty/FCSys",
+    "https://github.com/modelica-3rdparty/Buildings.git",
     "https://github.com/modelica-3rdparty/FuelCellLib",
+    "https://github.com/modelica-3rdparty/Icons.git",
+    "https://github.com/modelica-3rdparty/IDEAS.git",
     "https://github.com/modelica-3rdparty/MotorcycleLib",
     "https://github.com/modelica-3rdparty/MultiBondLib",
-    "https://github.com/modelica-3rdparty/Noise",
-    "https://github.com/modelica-3rdparty/OpenHydraulics",
     "https://github.com/modelica-3rdparty/PDELib",
-    "https://github.com/modelica-3rdparty/Physiolibrary.git",
-    "https://github.com/modelica-3rdparty/PlanarMechanics",
-    "https://github.com/modelica-3rdparty/PNlib",
-    "https://github.com/modelica-3rdparty/ConPNlib",
+    "https://github.com/modelica-3rdparty/QCalc.git",
     "https://github.com/modelica-3rdparty/SPICELib",
     "https://github.com/modelica-3rdparty/TechThermo",
     "https://github.com/modelica-3rdparty/ThermoBondLib",
@@ -37,14 +37,19 @@
     "https://api.github.com/users/modelica/repos?type=owner&per_page=100"
   ],
   "provided": {
+    "AixLib 0.3.0": "AixLib 0.4.0",
+    "Buildings 4.0.0": "Buildings latest",
     "Complex 1.0": "Complex 3.2.1",
     "Modelica 2.2": "Modelica 2.2.2",
     "Modelica 2.2.1": "Modelica 2.2.2",
     "Modelica 3.0": "Modelica 3.2.1",
     "Modelica 3.2": "Modelica 3.2.1",
+    "Modelica 3.2.2": "Modelica 3.2.1",
     "ModelicaServices 3.2": "ModelicaServices 3.2.1",
-    "Modelica_StateGraph2 2.0.1": "Modelica_StateGraph2 2.0.2",
-    "Modelica_Synchronous 0.91": "Modelica_Synchronous 0.92"
+    "Modelica_StateGraph2 2.0.1": "Modelica_StateGraph2 2.0.3",
+    "Modelica_StateGraph2 2.0.2": "Modelica_StateGraph2 2.0.3",
+    "Modelica_Synchronous 0.91": "Modelica_Synchronous 0.92",
+    "Physiolibrary 2.3.2": "Physiolibrary 2.3.2-beta"
   },
   "repos": [
     {
@@ -67,13 +72,44 @@
       "url": "https://github.com/modelica-3rdparty/ADMSL.git"
     },
     {
-      "dest": "Annex60",
+      "dest": "AdvancedNoise",
       "options": {
-        "gitbranch": "master",
-        "license": "buildings"
+        "gitbranch": "master"
       },
-      "rev": "3f7ab41b4b4df7f0673864a401e268cbe6a27539",
-      "url": "https://github.com/iea-annex60/modelica-annex60.git"
+      "rev": "aa4437859104f9ecaf345576617a4205d5658142",
+      "url": "https://github.com/modelica-3rdparty/AdvancedNoise.git"
+    },
+    {
+      "dest": "AixLib",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "4b7047cd5f9a207146b30d7976263637ce1fa597",
+      "url": "https://github.com/modelica-3rdparty/AixLib.git"
+    },
+    {
+      "dest": "Annex60",
+      "multitarget": [
+        {
+          "options": {
+            "gitbranch": "master",
+            "license": "buildings"
+          },
+          "rev": "ff26ba2e76d68ff01f1445708f5d09613b8ebc20",
+          "targets": [
+            "IBPSA latest"
+          ]
+        },
+        {
+          "options": {
+            "gitbranch": "master",
+            "gittag": "v1.0.0",
+            "license": "buildings"
+          },
+          "rev": "v1.0.0"
+        }
+      ],
+      "url": "https://github.com/ibpsa/modelica.git"
     },
     {
       "core": true,
@@ -108,30 +144,78 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "fed013cdeec0fb9552964376b575a8e3635539ab",
+      "rev": "e688248f471e3680b9290fa5b448897304fc7d00",
       "url": "https://github.com/modelica-3rdparty/BrineProp.git"
     },
     {
-      "dest": "Buildings",
+      "dest": "BuildingSystems",
       "options": {
-        "gitbranch": "master",
-        "license": "buildings"
+        "gitbranch": "master"
       },
-      "rev": "6535cc63a42f282b9d0a1b625b3db6b206cea3b3",
-      "targets": [
-        "Buildings latest"
-      ],
-      "url": "https://github.com/lbl-srg/modelica-buildings.git"
+      "rev": "a8dfc8ce7f616e3a606cd07a34332259bdf658dd",
+      "url": "https://github.com/modelica-3rdparty/BuildingSystems.git"
     },
     {
-      "dest": "Buildings-release",
-      "options": {
-        "gitbranch": "release",
-        "license": "buildings"
-      },
-      "rev": "444aa231f423b8d04225bf8672e3212d089fbfe4",
-      "targets": [
-        "Buildings"
+      "dest": "Buildings",
+      "multitarget": [
+        {
+          "options": {
+            "gitbranch": "master",
+            "license": "buildings"
+          },
+          "rev": "55221d33ff69a40a0728057fcb6c6f9b4ce7d1ce",
+          "targets": [
+            "Buildings latest"
+          ]
+        },
+        {
+          "options": {
+            "gitbranch": "master",
+            "gittag": "v1.4_build1",
+            "license": "buildings"
+          },
+          "rev": "v1.4_build1"
+        },
+        {
+          "options": {
+            "gitbranch": "master",
+            "gittag": "v1.5+build.3",
+            "license": "buildings"
+          },
+          "rev": "v1.5+build.3"
+        },
+        {
+          "options": {
+            "gitbranch": "master",
+            "gittag": "v1.6+build.1",
+            "license": "buildings"
+          },
+          "rev": "v1.6+build.1"
+        },
+        {
+          "options": {
+            "gitbranch": "master",
+            "gittag": "v2.0.0",
+            "license": "buildings"
+          },
+          "rev": "v2.0.0"
+        },
+        {
+          "options": {
+            "gitbranch": "master",
+            "gittag": "v2.1.0",
+            "license": "buildings"
+          },
+          "rev": "v2.1.0"
+        },
+        {
+          "options": {
+            "gitbranch": "master",
+            "gittag": "v3.0.0",
+            "license": "buildings"
+          },
+          "rev": "v3.0.0"
+        }
       ],
       "url": "https://github.com/lbl-srg/modelica-buildings.git"
     },
@@ -140,7 +224,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "e2706ece8689e9e67de79628949191cc91bde659",
+      "rev": "ac5adb752c8ae7dec0f6c81d174b72a43a01659f",
       "url": "https://github.com/modelica-3rdparty/Chemical.git"
     },
     {
@@ -156,7 +240,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "bbf6e9711665d55e5a8cf2f7235fa013c2315104",
+      "rev": "f635b8b4144eb46ff6711b1566c34405df58cda1",
       "url": "https://github.com/lochel/ConPNlib.git"
     },
     {
@@ -166,6 +250,38 @@
       },
       "rev": "7a473d8d16b118c3ea05761c6f43b17fd9838e4e",
       "url": "https://github.com/modelica-3rdparty/DESLib.git"
+    },
+    {
+      "dest": "DriveControl",
+      "options": {
+        "gitbranch": "release"
+      },
+      "rev": "a69896c570905abb039b8a0e91e4724f88449448",
+      "url": "https://github.com/AHaumer/DriveControl.git"
+    },
+    {
+      "dest": "EMOTH",
+      "options": {
+        "gitbranch": "release"
+      },
+      "rev": "fa890c8c2781f0c0b2f8efe955ed8a27875dd9ac",
+      "url": "https://github.com/AHaumer/EMOTH.git"
+    },
+    {
+      "dest": "ElectricalEnergyStorage",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "096db4d2411f02e0e4e07823c09ea05437e778e6",
+      "url": "https://github.com/modelica/ElectricalEnergyStorage.git"
+    },
+    {
+      "dest": "ElectroMechanicalDrives",
+      "options": {
+        "gitbranch": "release"
+      },
+      "rev": "73108e42baefbf7517680fbae80ff473e945b17a",
+      "url": "https://github.com/christiankral/ElectroMechanicalDrives.git"
     },
     {
       "dest": "ExtendedPetriNets",
@@ -180,7 +296,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "396164fa708cc7c7e64da55ac0b3cba23939f790",
+      "rev": "6e2f79d1e2207f4b022024eee5726e63d096aaac",
       "url": "https://github.com/modelica-3rdparty/ExternData.git"
     },
     {
@@ -190,6 +306,14 @@
       },
       "rev": "1b77869b31dc3509defeccb1236db4b05d2f6f5b",
       "url": "https://github.com/modelica/ExternalMedia.git"
+    },
+    {
+      "dest": "ExternalMemoryLib",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "6488d5815bda23c665123baa916789e283e16d2c",
+      "url": "https://github.com/modelica-3rdparty/ExternalMemoryLib.git"
     },
     {
       "dest": "FCSys",
@@ -206,15 +330,31 @@
         "gitbranch": "master"
       },
       "rev": "1f5cfebc2f42c13e272bff639ffa3449d5740bf7",
-      "url": "https://github.com/modelica-3rdparty/FastBuildings.git"
+      "url": "https://github.com/open-ideas/FastBuildings.git"
     },
     {
       "dest": "FaultTriggering",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "10c226b7e5b2af901b356ac437c90d6616a6e9a4",
+      "rev": "7f992b1ab5fe91f1c95407fa0bf9589786405d3a",
       "url": "https://github.com/modelica-3rdparty/FaultTriggering.git"
+    },
+    {
+      "dest": "FeedDriveLibrary",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "b25dd3ef582872ac6ed5f5e15cbac9e9a6df194a",
+      "url": "https://github.com/modelica-3rdparty/FeedDriveLibrary.git"
+    },
+    {
+      "dest": "FractionalOrder",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "99918820e346c362c3ad52d782c8215e5deeac4c",
+      "url": "https://github.com/DLR-SR/FractionalOrder.git"
     },
     {
       "dest": "FuzzyControl",
@@ -230,7 +370,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "e54fcd0e436d65c85de6c6b935983e363cdc9f6c",
+      "rev": "753273b48975d76f6827bbd1ad69066f10f5c3bd",
       "url": "https://github.com/modelica-3rdparty/HelmholtzMedia.git"
     },
     {
@@ -238,7 +378,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "8ebac550d913f6d2b3af4d1aea5044e72c7eb6b0",
+      "rev": "ae8b0397ea8207bc4327bea1e81ac09c6d4bcea9",
       "url": "https://github.com/modelica-3rdparty/IdealizedContact.git"
     },
     {
@@ -247,7 +387,7 @@
         "gitbranch": "master",
         "patchlevel": "om1"
       },
-      "rev": "6a2414307d5998c6d081efe803c2b575a532b3ba",
+      "rev": "68954e9bbe4664abad74ecd9209284143aefc58a",
       "url": "https://github.com/modelica-3rdparty/IndustrialControlSystems.git"
     },
     {
@@ -256,20 +396,37 @@
       "url": "https://svn.modelica.org/projects/Modelica_ElectricalSystems/InstantaneousSymmetricalComponents"
     },
     {
+      "dest": "KeyWordIO",
+      "options": {
+        "gitbranch": "release",
+        "license": "modelica1.1"
+      },
+      "rev": "ea87269baca6f8ef19898ec6bc76ea8555e2f657",
+      "url": "https://github.com/christiankral/KeyWordIO.git"
+    },
+    {
       "dest": "LinearMPC",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "1e91a5dcaa662cd30c5b09a9d0267289703f933b",
+      "rev": "c16ad1c1970ea581c51158cca0647e165dc4c3b9",
       "url": "https://github.com/modelica-3rdparty/LinearMPC.git"
     },
     {
+      "dest": "ManualTracking",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "ab15d4cae19b5e4a1148d1d4b2a05c50864599ba",
+      "url": "https://github.com/jjpotterkowski/ManualTracking.git"
+    },
+    {
       "core": true,
-      "dest": "MSL",
+      "dest": "Modelica",
       "multitarget": [
         {
           "options": {
-            "gittag": "release",
+            "gittag": "v1.6",
             "intertrac": "m:",
             "license": "modelica1.1",
             "patchlevel": "Modelica:-om1",
@@ -277,7 +434,7 @@
           },
           "rev": "v1.6",
           "targets": [
-            "Modelica 1.6"
+            "self"
           ]
         },
         {
@@ -313,13 +470,30 @@
             "patchlevel": "Complex:-om1,Modelica:-om1,ModelicaServices:-om1",
             "remove-files": "Resources/Library"
           },
-          "rev": "fd35e15e708cc9ed6cec7567f2fef31cf87657fc",
+          "rev": "60cb4e48077fa22cc97d02e767baa83ec78aadf9",
+          "targets": [
+            "Complex",
+            "Modelica",
+            "ModelicaServices",
+            "ModelicaTest"
+          ]
+        },
+        {
+          "options": {
+            "gitbranch": "maint/3.2.2",
+            "intertrac": "m:",
+            "no-dependencies": "ModelicaServices",
+            "patchlevel": "Complex:-om1,Modelica:-om2,ModelicaServices:-om1",
+            "remove-files": "Resources/Library"
+          },
+          "rev": "3c65dc742b35c88dcb2a530d958eeedf9ea88af4",
           "targets": [
             "Complex",
             "Modelica",
             "ModelicaReference none",
             "ModelicaServices",
             "ModelicaTest",
+            "ModelicaTestOverdetermined",
             "ObsoleteModelica3"
           ]
         },
@@ -332,7 +506,7 @@
             "patchlevel": "Complex:-om1,Modelica:-om1,ModelicaServices:-om1",
             "remove-files": "Resources/Library"
           },
-          "rev": "433cab0fdf58ec3b099e32f307983f01f9fe45e4",
+          "rev": "f1e1cded603cf9dc8ac8f48da4fa61cecf6df129",
           "targets": [
             "Complex trunk",
             "Modelica trunk",
@@ -345,16 +519,20 @@
       "url": "https://github.com/modelica/Modelica.git"
     },
     {
-      "core": true,
-      "dest": "Modelica3D",
+      "dest": "Modelica-MVEM",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "daf5669b03ad33fc6999671d1c0e7521134a282b",
-      "targets": [
-        "none"
-      ],
-      "url": "https://github.com/OpenModelica/modelica3d.git"
+      "rev": "57c7aa394d70bffe6106afb2703b92bc532a05d1",
+      "url": "https://github.com/modelica-3rdparty/Modelica-MVEM.git"
+    },
+    {
+      "dest": "ModelicaADS",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "71b9c8d814d6c1031ef3e7b9d31d09369f2ee83a",
+      "url": "https://github.com/modelica-3rdparty/ModelicaADS.git"
     },
     {
       "dest": "ModelicaAdditions",
@@ -370,7 +548,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "7fa51738d8269f629840a008c31e350d53b16697",
+      "rev": "6a8ad8668f6dc2aec368a2ad27f7a74647ced81d",
       "url": "https://github.com/xogeny/ModelicaBook.git"
     },
     {
@@ -378,7 +556,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "ca5092c14bb7af4507a10700ee49181a3a3ee199",
+      "rev": "f2f2acbdf1c64e487e4b4ab85069f6172ac39d6b",
       "url": "https://github.com/modelica-compliance/compliance.git"
     },
     {
@@ -390,52 +568,45 @@
       "url": "https://github.com/modelica-3rdparty/ModelicaDEVS.git"
     },
     {
+      "dest": "ModelicaDFR",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "37a441934d05330cf3d13e9ec551954d27eca84c",
+      "url": "https://github.com/modelica-3rdparty/ModelicaDFR.git"
+    },
+    {
+      "core": true,
       "dest": "Modelica_DeviceDrivers",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "db912ba7e1317b8f6a776ccf9a19f69c77a9c477",
+      "rev": "39a0934d63f98c714a42bf32a87e443932a51922",
       "url": "https://github.com/modelica/Modelica_DeviceDrivers.git"
-    },
-    {
-      "dest": "Modelica_EnergyStorages",
-      "options": {
-        "gitbranch": "master"
-      },
-      "rev": "9f057365232364e31a31a8e525f96284b98c7de3",
-      "url": "https://github.com/modelica/Modelica_EnergyStorages.git"
     },
     {
       "dest": "Modelica_LinearSystems2",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "18916fdc485285baab12481701b53d4eb606a3f1",
-      "targets": [
-        "self"
-      ],
+      "rev": "ae9d82604f5a0241e0f066c8673c1b228c3abbf1",
       "url": "https://github.com/modelica/Modelica_LinearSystems2.git"
     },
     {
       "dest": "Modelica_StateGraph2",
-      "options": {
-        "encoding": "Windows-1252"
-      },
-      "rev": 8121,
+      "rev": 9594,
       "targets": [
         "self"
       ],
       "url": "https://svn.modelica.org/projects/Modelica_EmbeddedSystems/trunk/Modelica_StateGraph2"
     },
     {
+      "core": true,
       "dest": "Modelica_Synchronous",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "d0f5ee57bc7b639738e88026674a87343b33dbe1",
-      "targets": [
-        "self"
-      ],
+      "rev": "21f042067692e857f5ce6877f49ecaf93e210ba4",
       "url": "https://github.com/modelica/Modelica_Synchronous.git"
     },
     {
@@ -445,6 +616,14 @@
       },
       "rev": "2be2667f9936d88ffb9b8a8246c5af9ccb0b307f",
       "url": "https://github.com/modelica-3rdparty/MotorcycleDynamics.git"
+    },
+    {
+      "dest": "MultiPhaseMixtureMedia",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "b82e39f9ec44757503d46ecf5dc39d1fac598ed6",
+      "url": "https://github.com/jwindahlModelon/MultiPhaseMixtureMedia.git"
     },
     {
       "dest": "NCLib",
@@ -468,7 +647,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "510a7d08ee20371e2e5f3bf98ed316ee4263a590",
+      "rev": "e90fbfec8ca3ab9d3869dce9092fa73c46163902",
       "url": "https://github.com/DLR-SR/Noise.git"
     },
     {
@@ -476,7 +655,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "2a723e0b223af50f4ffdd62f8ac901e0f87b9323",
+      "rev": "14a178c837390a0411613f85b11372503ee067ea",
       "url": "https://github.com/modelica-3rdparty/ObjectStab.git"
     },
     {
@@ -484,31 +663,63 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "d3173d1f06f7d14c9d7c41769f143617ff03a3ad",
+      "rev": "3485cf4ae0449f1a76af737b7705879f8f08c14f",
       "url": "https://github.com/cparedis/OpenHydraulics.git"
+    },
+    {
+      "dest": "OpenIPSL",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "c9c927bc48f7c3f5d5593d659a1ace816d39c499",
+      "url": "https://github.com/SmarTS-Lab/OpenIPSL.git"
     },
     {
       "dest": "PNlib",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "44c7d277980b7a88b449b72edec0a56416b40fa9",
+      "rev": "87fcef37344882a3de4e9a3a8a06fa4fb2753e6b",
       "url": "https://github.com/lochel/PNlib.git"
+    },
+    {
+      "dest": "PVSystems",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "dcf5f5434cd4ac1faf897c896afc0cf00162a7f7",
+      "url": "https://github.com/modelica-3rdparty/PVSystems.git"
+    },
+    {
+      "dest": "PhotoVoltaics",
+      "options": {
+        "gitbranch": "release"
+      },
+      "rev": "ece5e550877294d1d886c3864b78c4a00eaf15da",
+      "url": "https://github.com/modelica-3rdparty/PhotoVoltaics.git"
     },
     {
       "dest": "Physiolibrary",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "49d59060f6e5b4cb68560c6d7467e84ea4318056",
+      "rev": "cd70c7358734a8c00a38c39ddd1799818b999bbd",
       "url": "https://github.com/MarekMatejak/Physiolibrary.git"
+    },
+    {
+      "dest": "Physiomodel",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "1978083b841a74cd593c46b0b19f12716cf3974e",
+      "url": "https://github.com/modelica-3rdparty/Physiomodel.git"
     },
     {
       "dest": "PlanarMechanics",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "d998a1b27355e83d2ff4849d71281a919a3234aa",
+      "rev": "998e2a4e897c37d9f56e0be0282421f468ccf456",
       "url": "https://github.com/dzimmer/PlanarMechanics.git"
     },
     {
@@ -521,7 +732,7 @@
       "options": {
         "gitbranch": "release"
       },
-      "rev": "7b551888089277a0dd979db636d47aba0279e8f0",
+      "rev": "44ecf8d170c5ce80281b306e706058329e706966",
       "url": "https://github.com/modelica/PowerSystems.git"
     },
     {
@@ -529,7 +740,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "3abd48aa53bbcd3f3e2ddfa2371680febf8baf48",
+      "rev": "c6ab50fed9e51dcff6554c2836fc7d7f67b94706",
       "targets": [
         "PowerSystems latest"
       ],
@@ -541,19 +752,11 @@
         "gitbranch": "master",
         "license": "gpl3"
       },
-      "rev": "f7db177786f84033f3a50b7474988b190a1dfb46",
+      "rev": "7446be67ec1c931b1d43fb51721b23b495916c1f",
       "targets": [
         "PraxisSimulationstechnik"
       ],
       "url": "https://github.com/modelica-3rdparty/PraxisSimulationstechnik.git"
-    },
-    {
-      "dest": "QCalc",
-      "options": {
-        "gitbranch": "master"
-      },
-      "rev": "af6c34dda691a9bdf7ca1de10650974b2d5cecf5",
-      "url": "https://github.com/modelica-3rdparty/QCalc.git"
     },
     {
       "dest": "QSSFluidFlow",
@@ -572,7 +775,7 @@
         "encoding": "Windows-1252",
         "gitbranch": "master"
       },
-      "rev": "655ac1a22aa6deb04ea8e3869dd0aa9fb9540754",
+      "rev": "5aaf3c3971850ff7ecdb1392b8ef020b605235e8",
       "targets": [
         "self"
       ],
@@ -583,15 +786,15 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "c6319908d45ac97ffb10e96cd42654bce36ffb97",
-      "url": "https://github.com/modelica-3rdparty/ScalableTestSuite.git"
+      "rev": "eafef88cdddbfefd5a62e51f25a06daef58c6015",
+      "url": "https://github.com/casella/ScalableTestSuite.git"
     },
     {
       "dest": "Servomechanisms",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "22e1874ef9ad46156617817c67a4fb1238621bf5",
+      "rev": "a0681972ccd56cf83305ce4e3fc4340ff3c17b36",
       "url": "https://github.com/modelica-3rdparty/Servomechanisms.git"
     },
     {
@@ -614,17 +817,25 @@
           "options": {
             "gitbranch": "master"
           },
-          "rev": "2bd9e367baaa8d44946897c3c3a32a4050ad2a2a"
+          "rev": "88e758037da4a8ca1b21b468409b15417a27d992"
         }
       ],
       "url": "https://openmodelica.org/git/SiemensPower.git"
+    },
+    {
+      "dest": "SolarTherm",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "c6ba014d410c67f9320af7cc287375258dea8c15",
+      "url": "https://github.com/SolarTherm/SolarTherm.git"
     },
     {
       "dest": "Spot",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "2f74417f1681570900a1ed373dcbe4b42634ec7b",
+      "rev": "b5c084ca0cbb13ba137ac2c449240410cecfaaf1",
       "url": "https://github.com/modelica-3rdparty/Spot.git"
     },
     {
@@ -642,8 +853,8 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "e012268625dd1645fe5570cf31d64129d83a8192",
-      "url": "https://github.com/modelica-3rdparty/ThermoPower.git"
+      "rev": "e3a0753a0d007ab9bccf99ca403f17fd80a9159e",
+      "url": "https://github.com/casella/ThermoPower.git"
     },
     {
       "core": true,
@@ -659,17 +870,43 @@
           "options": {
             "gitbranch": "master"
           },
-          "rev": "51e7ea2d2e121ee640e7897335c294923f8eaeb0"
+          "rev": "db81ae1b5a6a85f6c6c7693244cafa6087e18ff5"
         }
       ],
       "url": "https://openmodelica.org/git/ThermoSysPro.git"
     },
     {
-      "dest": "VehicleInterfaces",
+      "core": true,
+      "dest": "VVDRlib",
       "options": {
-        "gitbranch": "release"
+        "gitbranch": "master"
       },
-      "rev": "ad956a35643d53e207ee126d67ea1f3f38337a39",
+      "rev": "8679a51a2d70e77b86b00792796ff656163e944b",
+      "targets": [
+        "self"
+      ],
+      "url": "https://github.com/lenaRB/VVDRlib.git"
+    },
+    {
+      "dest": "VehicleInterfaces",
+      "multitarget": [
+        {
+          "options": {
+            "gitbranch": "release"
+          },
+          "rev": "ad956a35643d53e207ee126d67ea1f3f38337a39"
+        },
+        {
+          "options": {
+            "gitbranch": "master",
+            "gittag": "v1.2.4"
+          },
+          "rev": "v1.2.4",
+          "targets": [
+            "VehicleInterfaces 1.2.4"
+          ]
+        }
+      ],
       "url": "https://github.com/modelica/VehicleInterfaces.git"
     },
     {
@@ -678,8 +915,24 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "90ff44ac791ba5ed98444c8597efbd2a2af01cad",
+      "rev": "0c5eecaadf82cd9e3a6a4ffa6241903e38fd1946",
       "url": "https://github.com/modelica-3rdparty/WasteWater.git"
+    },
+    {
+      "dest": "Wavelet",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "0efd31402f62014dc8f4774e043b45428f390156",
+      "url": "https://github.com/modelica-3rdparty/Wavelet.git"
+    },
+    {
+      "dest": "WindPowerPlants",
+      "options": {
+        "gitbranch": "release"
+      },
+      "rev": "07f03628710966dda0ba0ea90547968b92d9d9da",
+      "url": "https://github.com/modelica-3rdparty/WindPowerPlants.git"
     },
     {
       "dest": "XogenyTest",
@@ -690,11 +943,35 @@
       "url": "https://github.com/xogeny/XogenyTest.git"
     },
     {
+      "dest": "buildsyspro",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "9a800dcbf2d5c491cf52b5adc11c776e2e155961",
+      "url": "https://github.com/modelica-3rdparty/buildsyspro.git"
+    },
+    {
+      "dest": "ipsl",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "e0e3ea079a0398a3b0b094baaa3736350faa525b",
+      "url": "https://github.com/modelica-3rdparty/ipsl.git"
+    },
+    {
+      "dest": "modelica-flight",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "f3ae1c3ebe1b33921654a0e0d59d6e65f0bcfe84",
+      "url": "https://github.com/modelica-3rdparty/modelica-flight.git"
+    },
+    {
       "dest": "msgpack-modelica",
       "options": {
         "gitbranch": "master"
       },
-      "rev": "6ce2ca600c4902038c0f20b43ed442f1ee204310",
+      "rev": "4c1828463dd21dabbf29d963c6f1cf153aaa9028",
       "url": "https://github.com/modelica-3rdparty/msgpack-modelica.git"
     },
     {
@@ -702,7 +979,7 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "3d2cc8272abfbc4b667d8868f851bf3e11c6f00e",
+      "rev": "84cd413e22ab393baf76226120deaa8f1d8181bd",
       "url": "https://github.com/modelica-3rdparty/netCDF-DataReader.git"
     },
     {
@@ -710,8 +987,16 @@
       "options": {
         "gitbranch": "master"
       },
-      "rev": "7817cd703b88fc1f433269d32c31e75eb50a21c6",
+      "rev": "594be99fbc3310a4dd044a374592ebc673fc7d30",
       "url": "https://github.com/joewa/open-bldc-modelica.git"
+    },
+    {
+      "dest": "openfdm",
+      "options": {
+        "gitbranch": "master"
+      },
+      "rev": "382562b4b3a499472017977e52e62b6ac2f88baa",
+      "url": "https://github.com/modelica-3rdparty/openfdm.git"
     }
   ]
 }

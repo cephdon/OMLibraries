@@ -1,7 +1,7 @@
-diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/Math/package.mo "build/Modelica trunk/Math/package.mo"
---- git/Modelica/Modelica/Math/package.mo	2017-06-02 02:03:39.841857822 +0200
-+++ build/Modelica trunk/Math/package.mo	2017-06-02 02:12:23.019137010 +0200
-@@ -13221,9 +13221,67 @@
+diff -u -x .svn -x .git -x Library -r git/MSL/Modelica/Math/package.mo "build/Modelica 3.2.2/Math/package.mo"
+--- git/MSL/Modelica/Math/package.mo	2015-05-06 23:05:39.079856721 +0200
++++ build/Modelica 3.2.2/Math/package.mo	2015-05-06 23:05:39.655876463 +0200
+@@ -13162,9 +13162,67 @@
  
    annotation (Documentation(info="<html>
  
@@ -17,14 +17,14 @@ diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/Math/package.mo "bui
 +  input Integer icol "column of table to be interpolated";
 +  input Real du;
 +  output Real dy "interpolated input value (icol column of table)";
-+  protected 
++protected
 +  Integer i;
 +  Integer n "number of rows of table";
 +  Real u1;
 +  Real u2;
 +  Real y1;
 +  Real y2;
-+algorithm 
++algorithm
 +  n := size(table, 1);
 +
 +  if n <= 1 then
@@ -60,7 +60,7 @@ diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/Math/package.mo "bui
 +    assert(u2 > u1, "Table index must be increasing");
 +    // Interpolate
 +    dy := (y2 - y1)/(u2 - u1);
-+ 
++
 +  end if;
 +
 +  annotation (Documentation(info="<html>
@@ -70,7 +70,7 @@ diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/Math/package.mo "bui
  
  function tempInterpol2
    "Temporary function for vectorized linear interpolation (will be removed)"
-@@ -13283,9 +13341,74 @@
+@@ -13224,9 +13282,74 @@
  
    annotation (Documentation(info="<html>
  
@@ -146,31 +146,13 @@ diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/Math/package.mo "bui
  
  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
            {100,100}}), graphics={Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},
-diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/Math/package.order "build/Modelica trunk/Math/package.order"
---- git/Modelica/Modelica/Math/package.order	2017-06-02 02:02:41.462161500 +0200
-+++ build/Modelica trunk/Math/package.order	2017-06-02 02:12:23.019137010 +0200
-@@ -29,4 +29,6 @@
+diff -u -x .svn -x .git -x Library -r git/MSL/Modelica/Math/package.order "build/Modelica 3.2.2/Math/package.order"
+--- git/MSL/Modelica/Math/package.order	2015-05-06 23:05:25.499391283 +0200
++++ build/Modelica 3.2.2/Math/package.order	2015-05-06 23:05:39.655876463 +0200
+@@ -24,4 +24,6 @@
  baseIcon1
  baseIcon2
  tempInterpol1
 +tempInterpol1_der
  tempInterpol2
 +tempInterpol2_der
-diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/package.mo "build/Modelica trunk/package.mo"
---- git/Modelica/Modelica/package.mo	2017-06-02 02:03:39.873857655 +0200
-+++ build/Modelica trunk/package.mo	2017-06-02 02:12:24.715128191 +0200
-@@ -8216,12 +8216,12 @@
- 
- annotation (
- preferredView="info",
--version="3.x.x",
-+version= "trunk",
- versionBuild=0,
- versionDate="2016-04-03",
- dateModified = "2016-04-03 08:44:41Z",
- revisionId="$Id::                                       $",
--uses(Complex(version="3.2.2"), ModelicaServices(version="3.2.2")),
-+uses(Complex(version= "trunk"), ModelicaServices(version= "trunk")),
- conversion(
-  noneFromVersion="3.2.1",
-  noneFromVersion="3.2",

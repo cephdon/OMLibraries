@@ -4,6 +4,7 @@ import os
 import requests
 import sys
 import simplejson
+import re
 from optparse import OptionParser
 from collections import defaultdict
 import subprocess
@@ -40,7 +41,7 @@ def updateCommand(r, customBuild=None):
 def makeFileReplayCommand(r):
   return ("git" if r['url'].endswith(".git") else "svn") + "/" + r['dest'] + ".cmd"
 def update():
-  open("bad-uses.sh", "w").write("#!/bin/sh\nsed -i %s \"$1\"" % " ".join(["-e '/%s/d' " % use for use in jsondata['bad-uses']]))
+  open("bad-uses.sh", "w").write("#!/bin/sh\nsed -i %s \"$1\"\n" % " ".join(["-e '/%s/d' " % use for use in jsondata['bad-uses']]))
 
   from joblib import Parallel, delayed
   provides = defaultdict(list)
@@ -87,6 +88,7 @@ def update():
     fout.write("\nCORE_LIBS=" + " ".join(core_lib))
     fout.write("\nOTHER_LIBS=" + " ".join(other_lib))
     fout.write("\nALL_LIBS=$(CORE_LIBS) $(OTHER_LIBS)\n")
+    fout.write("\nTIMESTAMP=%s\n" % stamp)
     fout.writelines(lines)
   return 0
 
@@ -98,14 +100,21 @@ def findPrefix(pre,strs):
 
 def checkGithub(ghs,urls):
   res = []
+  access_token = ""
   for gh in ghs:
-    r = requests.get(gh)
+    r = requests.get(gh+"&"+access_token)
     if(r.ok):
       for repo in simplejson.loads(r.text or r.content):
-        if not findPrefix(repo['svn_url'],urls):
-          res.append(repo)
+        if sum(not (re.search("/%s([.]git)?$" % repo['name'], url) is None) for url in urls):
+          continue
+        if repo['fork']:
+          r = requests.get(repo['url']+"?"+access_token)
+          if not r.ok:
+            raise Exception("GitHub request failed: "+repo['url'])
+          repo = simplejson.loads(r.text or r.content)
+        res.append(repo)
     else:
-      raise "GitHub request failed"
+      raise Exception("GitHub request failed %s" % gh)
   return res
 
 def checkLatest(repo):
@@ -172,6 +181,8 @@ if __name__ == '__main__':
   (options, args) = parser.parse_args()
   n_jobs = options.n_jobs
   if options.check_latest:
+    update()
+    os.system("rm -r build/")
     from joblib import Parallel, delayed
     res = Parallel(n_jobs=n_jobs)(delayed(checkLatest)(repo) for repo in repos)
     # res = [checkLatest(repo) for repo in repos]

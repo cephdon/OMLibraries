@@ -222,10 +222,22 @@ for f in $LIBS "$@"; do
   else
     # Do this a second time after patching for updated uses-annotations... Yes, a bit weird
     if test -d "$BUILD/$NAME$EXT"; then
-      ./get-version.sh "$OMC" "$BUILD" "$BUILD/$NAME$EXT/package.mo" "$LIB" "$ENCODING" "$STD"
+      VVER=`./get-version.sh "$OMC" "$BUILD" "$BUILD/$NAME$EXT/package.mo" "$LIB" "$ENCODING" "$STD"`
     else
-      ./get-version.sh "$OMC" "$BUILD" "$BUILD/$NAME$EXT" "$LIB" "$ENCODING" "$STD"
+      VVER=`./get-version.sh "$OMC" "$BUILD" "$BUILD/$NAME$EXT" "$LIB" "$ENCODING" "$STD"`
     fi
+
+    # adrpo: sometimes the version in package.mo is WRONG! check that here
+    if test -z "$VVER"; then
+      NNAME="$LIB"
+    else
+      NNAME="$LIB $VVER"
+    fi
+    # adrpo: see if the $NAME != $NNAME
+    if test "$NAME" != "$NNAME"; then
+      mv "$BUILD/$NNAME.uses" "$BUILD/$NAME.uses"
+    fi
+
 
     test -f "$BUILD/$NAME.uses" || touch "$BUILD/$NAME.uses"
     bash bad-uses.sh "$BUILD/$NAME.uses"
@@ -269,7 +281,7 @@ for f in $LIBS "$@"; do
         CHANGED="$VER-$CHANGED~git~$GITBRANCH"
       fi
     fi
-    CHANGED=`echo $CHANGED | tr -d : | tr " /" "--" | sed s,^v,,`
+    CHANGED=`echo $CHANGED | tr -d : | tr " /_" "---" | sed s,^v,,`
     CHANGED="$CHANGED$PATCHREV"
     echo "$CHANGED" > "$BUILD/$NAME.last_change"
     echo "echo '$CHANGED' > \"\$(BUILD_DIR)/$NAME.last_change\"" >> "$CMD_REPLAY"

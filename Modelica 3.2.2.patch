@@ -1,0 +1,264 @@
+diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/Blocks/Sources.mo "build/Modelica 3.2.2/Blocks/Sources.mo"
+--- git/Modelica/Modelica/Blocks/Sources.mo	2017-02-14 11:24:40.825292502 +0100
++++ build/Modelica 3.2.2/Blocks/Sources.mo	2017-02-14 11:54:19.623717345 +0100
+@@ -2379,7 +2379,8 @@
+       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+       input Modelica.SIunits.Time timeIn;
+       input Real tableAvailable
+-        "Dummy input to ensure correct sorting of function calls";
++        "Dummy input to ensure correct sorting of function calls" annotation(
++        __OpenModelica_UnusedVariable = true);
+       output Modelica.SIunits.Time nextTimeEvent "Next time event in table";
+       external"C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
+         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/Blocks/Tables.mo "build/Modelica 3.2.2/Blocks/Tables.mo"
+--- git/Modelica/Modelica/Blocks/Tables.mo	2017-02-14 11:21:11.991978011 +0100
++++ build/Modelica 3.2.2/Blocks/Tables.mo	2017-02-14 11:54:18.503710922 +0100
+@@ -59,7 +59,8 @@
+       input Integer icol;
+       input Real u;
+       input Real tableAvailable
+-        "Dummy input to ensure correct sorting of function calls";
++        "Dummy input to ensure correct sorting of function calls" annotation(
++        __OpenModelica_UnusedVariable = true);
+       output Real y;
+       external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+@@ -73,7 +74,8 @@
+       input Integer icol;
+       input Real u;
+       input Real tableAvailable
+-        "Dummy input to ensure correct sorting of function calls";
++        "Dummy input to ensure correct sorting of function calls" annotation(
++        __OpenModelica_UnusedVariable = true);
+       output Real y;
+       external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+@@ -86,7 +88,8 @@
+       input Integer icol;
+       input Real u;
+       input Real tableAvailable
+-        "Dummy input to ensure correct sorting of function calls";
++        "Dummy input to ensure correct sorting of function calls" annotation(
++        __OpenModelica_UnusedVariable = true);
+       input Real der_u;
+       output Real der_y;
+       external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
+@@ -361,7 +364,8 @@
+       input Integer icol;
+       input Real u;
+       input Real tableAvailable
+-        "Dummy input to ensure correct sorting of function calls";
++        "Dummy input to ensure correct sorting of function calls" annotation(
++        __OpenModelica_UnusedVariable = true);
+       output Real y;
+       external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+@@ -375,7 +379,8 @@
+       input Integer icol;
+       input Real u;
+       input Real tableAvailable
+-        "Dummy input to ensure correct sorting of function calls";
++        "Dummy input to ensure correct sorting of function calls" annotation(
++        __OpenModelica_UnusedVariable = true);
+       output Real y;
+       external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+@@ -388,7 +393,8 @@
+       input Integer icol;
+       input Real u;
+       input Real tableAvailable
+-        "Dummy input to ensure correct sorting of function calls";
++        "Dummy input to ensure correct sorting of function calls" annotation(
++        __OpenModelica_UnusedVariable = true);
+       input Real der_u;
+       output Real der_y;
+       external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
+@@ -658,7 +664,8 @@
+       input Real u1;
+       input Real u2;
+       input Real tableAvailable
+-        "Dummy input to ensure correct sorting of function calls";
++        "Dummy input to ensure correct sorting of function calls" annotation(
++        __OpenModelica_UnusedVariable = true);
+       output Real y;
+       external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
+         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+@@ -672,7 +679,8 @@
+       input Real u1;
+       input Real u2;
+       input Real tableAvailable
+-        "Dummy input to ensure correct sorting of function calls";
++        "Dummy input to ensure correct sorting of function calls" annotation(
++        __OpenModelica_UnusedVariable = true);
+       output Real y;
+       external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
+         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+@@ -685,7 +693,8 @@
+       input Real u1;
+       input Real u2;
+       input Real tableAvailable
+-        "Dummy input to ensure correct sorting of function calls";
++        "Dummy input to ensure correct sorting of function calls" annotation(
++        __OpenModelica_UnusedVariable = true);
+       input Real der_u1;
+       input Real der_u2;
+       output Real der_y;
+diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/Math/package.mo "build/Modelica 3.2.2/Math/package.mo"
+--- git/Modelica/Modelica/Math/package.mo	2017-02-14 11:24:40.833292552 +0100
++++ build/Modelica 3.2.2/Math/package.mo	2017-02-14 11:54:14.883690159 +0100
+@@ -13225,9 +13225,67 @@
+ 
+   annotation (Documentation(info="<html>
+ 
+-</html>"));
++</html>"),
++derivative(zeroDerivative=table,zeroDerivative=icol)=tempInterpol1_der);
+ end tempInterpol1;
+ 
++function tempInterpol1_der
++  "Temporary function for linear interpolation (will be removed)"
++  input Real u "input value (first column of table)";
++  input Real table[:, :] "table to be interpolated";
++  input Integer icol "column of table to be interpolated";
++  input Real du;
++  output Real dy "interpolated input value (icol column of table)";
++protected
++  Integer i;
++  Integer n "number of rows of table";
++  Real u1;
++  Real u2;
++  Real y1;
++  Real y2;
++algorithm
++  n := size(table, 1);
++
++  if n <= 1 then
++    dy := 0;
++
++  else
++    // Search interval
++
++    if u <= table[1, 1] then
++      i := 1;
++
++    else
++      i := 2;
++      // Supports duplicate table[i, 1] values
++      // in the interior to allow discontinuities.
++      // Interior means that
++      // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
++
++      while i < n and u >= table[i, 1] loop
++        i := i + 1;
++
++      end while;
++      i := i - 1;
++
++    end if;
++
++    // Get interpolation data
++    u1 := table[i, 1];
++    u2 := table[i + 1, 1];
++    y1 := table[i, icol];
++    y2 := table[i + 1, icol];
++
++    assert(u2 > u1, "Table index must be increasing");
++    // Interpolate
++    dy := (y2 - y1)/(u2 - u1);
++
++  end if;
++
++  annotation (Documentation(info="<html>
++
++</html>"));
++end tempInterpol1_der;
+ 
+ function tempInterpol2
+   "Temporary function for vectorized linear interpolation (will be removed)"
+@@ -13287,9 +13345,74 @@
+ 
+   annotation (Documentation(info="<html>
+ 
+-</html>"));
++</html>"),
++derivative(zeroDerivative=table,zeroDerivative=icol)=tempInterpol2_der);
+ end tempInterpol2;
+ 
++function tempInterpol2_der
++  "Temporary function for vectorized linear interpolation (will be removed)"
++  extends Modelica.Icons.Function;
++  extends Modelica.Icons.ObsoleteModel;
++
++  input Real u "input value (first column of table)";
++  input Real table[:, :] "table to be interpolated";
++  input Integer icol[:] "column(s) of table to be interpolated";
++  input Real du "input value (first column of table)";
++  output Real dy[1, size(icol, 1)]
++    "interpolated input value(s) (column(s) icol of table)";
++protected
++  Integer i;
++  Integer n "number of rows of table";
++  Real u1;
++  Real u2;
++  Real y1[1, size(icol, 1)];
++  Real y2[1, size(icol, 1)];
++algorithm
++  n := size(table, 1);
++
++  if n <= 1 then
++    dy := zeros(1, size(icol,1));
++
++  else
++    // Search interval
++
++    if u <= table[1, 1] then
++      i := 1;
++
++    else
++      i := 2;
++      // Supports duplicate table[i, 1] values
++      // in the interior to allow discontinuities.
++      // Interior means that
++      // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
++
++      while i < n and u >= table[i, 1] loop
++        i := i + 1;
++
++      end while;
++      i := i - 1;
++
++    end if;
++
++    // Get interpolation data
++    u1 := table[i, 1];
++    u2 := table[i + 1, 1];
++    y1 := transpose([table[i, icol]]);
++    y2 := transpose([table[i + 1, icol]]);
++
++    assert(u2 > u1, "Table index must be increasing");
++    // Interpolate
++    dy := (y2 - y1)/(u2 - u1);
++
++  end if;
++
++  annotation (Documentation(info="<html>
++
++</html>")
++);
++end tempInterpol2_der;
++
++
+ 
+ annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+           {100,100}}), graphics={Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},
+diff -u -x .svn -x .git -x Library -r git/Modelica/Modelica/Math/package.order "build/Modelica 3.2.2/Math/package.order"
+--- git/Modelica/Modelica/Math/package.order	2017-02-14 11:24:40.833292552 +0100
++++ build/Modelica 3.2.2/Math/package.order	2017-02-14 11:54:14.883690159 +0100
+@@ -28,4 +28,6 @@
+ baseIcon1
+ baseIcon2
+ tempInterpol1
++tempInterpol1_der
+ tempInterpol2
++tempInterpol2_der

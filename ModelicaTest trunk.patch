@@ -1,18 +1,18 @@
-diff -u -x .svn -x .git -x Library -r git/MSL/ModelicaTest/package.mo "build/ModelicaTest trunk/package.mo"
---- git/MSL/ModelicaTest/package.mo	2015-05-06 13:10:32.283072507 +0200
-+++ build/ModelicaTest trunk/package.mo	2015-05-06 13:11:19.007308844 +0200
-@@ -44,12 +44,12 @@
+diff -u -x .svn -x .git -x Library -r git/Modelica/ModelicaTest/package.mo "build/ModelicaTest trunk/package.mo"
+--- git/Modelica/ModelicaTest/package.mo	2017-06-02 02:02:41.546161063 +0200
++++ build/ModelicaTest trunk/package.mo	2017-06-02 02:12:25.443124406 +0200
+@@ -51,12 +51,12 @@
  
  
    annotation (preferredView="info",
 -       version="3.2.2",
-+       version="trunk",
++       version= "trunk",
         versionBuild=0,
-        versionDate="2013-08-14",
-        dateModified = "2013-08-14 08:44:41Z",
+        versionDate="2016-03-11",
+        dateModified = "2016-03-11 08:44:41Z",
         revisionId="$Id::                                       $",
--       uses(Modelica(version="3.2.1")),
-+       uses(Modelica(version="trunk")),
+-       uses(Modelica(version="3.2.2")),
++       uses(Modelica(version= "trunk")),
      Documentation(info="<html>
  <p>
  This library provides models and functions to test components of

@@ -1,40 +1,46 @@
---- svn/MSL trunk/ModelicaServices/package.mo	2013-11-09 15:11:23.609016400 +0100
-+++ build/ModelicaServices trunk/package.mo	2013-11-09 15:50:14.308742738 +0100
+diff -u -x .svn -x .git -x Library -r git/Modelica/ModelicaServices/package.mo "build/ModelicaServices trunk/package.mo"
+--- git/Modelica/ModelicaServices/package.mo	2017-06-02 02:03:39.873857655 +0200
++++ build/ModelicaServices trunk/package.mo	2017-06-02 02:12:25.795122576 +0200
 @@ -1,7 +1,7 @@
  within ;
 -package ModelicaServices "ModelicaServices (Default implementation) - Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
 +package ModelicaServices "ModelicaServices (OpenModelica implementation) - Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
- extends Modelica.Icons.Package;
--constant String target="Default"
-+constant String target="OpenModelica"
-   "Target of this ModelicaServices implementation";
+   extends Modelica.Icons.Package;
+-  constant String target="Default"
++  constant String target= "OpenModelica"
+     "Target of this ModelicaServices implementation";
  
- 
-@@ -693,7 +693,7 @@
-     extends
-       Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource;
-     algorithm
--    fileReference := Modelica.Utilities.Files.fullPathName(uri);
+   package UsersGuide "User's Guide"
+@@ -595,7 +595,7 @@
+       extends
+         Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource;
+       algorithm
+-      fileReference := Modelica.Utilities.Files.fullPathName(uri);
 +      fileReference:=OpenModelica.Scripting.uriToFilename(uri);
  
+       annotation (Documentation(info="<html>
+ <p>
+@@ -613,7 +613,7 @@
+       "Smallest number such that small and -small are representable on the machine";
+     final constant Real inf=1e60
+       "Biggest Real number such that inf and -inf are representable on the machine";
+-    final constant Integer Integer_inf=2147483647
++    final constant Integer Integer_inf=OpenModelica.Internal.Architecture.integerMax()
+       "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
      annotation (Documentation(info="<html>
  <p>
-@@ -713,7 +713,7 @@
-     "Smallest number such that small and -small are representable on the machine";
-   final constant Real inf=1.e+60
-     "Biggest Real number such that inf and -inf are representable on the machine";
--  final constant Integer Integer_inf=2147483647
-+  final constant Integer Integer_inf=OpenModelica.Internal.Architecture.integerMax()
-     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
-   annotation (Documentation(info="<html>
- <p>
-@@ -752,7 +752,7 @@
- annotation (
-   Protection(access=Access.hide),
-   preferredView="info",
--  version="3.2.1",
-+  version="trunk",
-   versionBuild=2,
-   versionDate="2013-08-14",
-   dateModified = "2013-08-14 08:44:41Z",
-
+@@ -663,12 +663,12 @@
+   annotation (
+     Protection(access=Access.hide),
+     preferredView="info",
+-    version="3.2.2",
++    version= "trunk",
+     versionBuild=0,
+     versionDate="2016-01-15",
+     dateModified = "2016-01-15 08:44:41Z",
+     revisionId="$Id::                                       $",
+-    uses(Modelica(version="3.x.x")),
++    uses(Modelica(version= "trunk")),
+     conversion(
+       noneFromVersion="1.0",
+       noneFromVersion="1.1",
